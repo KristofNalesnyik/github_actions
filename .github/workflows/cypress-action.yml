@@ -1,0 +1,11 @@
+name: Cypress tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Succeed 🎉
+        run: exit 0
