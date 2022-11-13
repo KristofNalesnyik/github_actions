@@ -13,7 +13,6 @@ jobs:
         if: always()
         uses: ravsamhq/notify-slack-action@v1
         with:
-          message_format: {workflow}* {status_message} in {repo}@{branch} on <{commit_url}|{commit_sha}>
           status: ${{ job.status }}
           notification_title: Slack notification
           notify_when: 'success,failure'
