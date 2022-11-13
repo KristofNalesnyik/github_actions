@@ -1,4 +1,4 @@
-name: Cypress tests
+name: Slack notification
 on:
   push:
     branches:
@@ -9,3 +9,11 @@ jobs:
     steps:
       - name: Succeed 🎉
         run: exit 0
+      - name: Report Status
+        if: always()
+        uses: ravsamhq/notify-slack-action@v1
+        with:
+          status: ${{ job.status }}
+          notify_when: 'success,failure'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
